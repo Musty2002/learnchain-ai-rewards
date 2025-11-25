@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* LearnChain Design System - Educational & Gamified */
+    --background: 220 25% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --card-gradient: linear-gradient(135deg, hsl(220 25% 99%), hsl(220 25% 96%));
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Blue (Trust & Learning) */
+    --primary: 220 85% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 85% 65%;
+
+    /* Secondary - Purple (Gamification) */
+    --secondary: 270 70% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 270 70% 75%;
+
+    /* Accent - Cyan (Rewards & Success) */
+    --accent: 180 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 180 85% 65%;
+
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 85% 42%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 42%), hsl(240 85% 52%));
+    --gradient-accent: linear-gradient(135deg, hsl(180 85% 45%), hsl(200 85% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 85% 42%), hsl(270 70% 60%));
+    --gradient-reward: linear-gradient(135deg, hsl(270 70% 60%), hsl(180 85% 45%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(220 85% 42% / 0.2);
+    --shadow-glow: 0 0 40px hsl(220 85% 65% / 0.3);
+    --shadow-reward: 0 0 30px hsl(180 85% 45% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --card-gradient: linear-gradient(135deg, hsl(222 47% 13%), hsl(222 47% 10%));
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 220 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 85% 70%;
+
+    --secondary: 270 70% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 270 70% 80%;
+
+    --accent: 180 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 180 85% 70%;
+
+    --muted: 222 30% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 220 85% 55%;
+
+    --shadow-elegant: 0 10px 30px -10px hsl(220 85% 55% / 0.4);
+    --shadow-glow: 0 0 40px hsl(220 85% 70% / 0.5);
+    --shadow-reward: 0 0 30px hsl(180 85% 50% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

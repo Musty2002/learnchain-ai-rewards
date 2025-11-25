@@ -1,0 +1,26 @@
+{
+  "name": "LearnChain - Offline AI Learning",
+  "short_name": "LearnChain",
+  "description": "Master new skills with AI mentorship and earn crypto rewards",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#9b87f5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "offline_enabled": true
+}
