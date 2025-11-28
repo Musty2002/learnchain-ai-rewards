@@ -6,6 +6,7 @@ import { User } from "@supabase/supabase-js";
 import { GraduationCap, Wallet, Network, Camera } from "lucide-react";
 import { MeshNetworkStatus } from "./MeshNetworkStatus";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -56,12 +57,14 @@ export const Navbar = () => {
                 <Wallet className="w-4 h-4" />
                 Wallet
               </Button>
+              <ThemeToggle />
               <Button variant="outline" size="sm" onClick={handleSignOut}>
                 Sign Out
               </Button>
             </>
           ) : (
             <>
+              <ThemeToggle />
               <Button variant="ghost" size="sm" onClick={() => navigate("/auth")}>
                 Sign In
               </Button>
@@ -75,6 +78,7 @@ export const Navbar = () => {
         {/* Mobile Navigation */}
         <div className="flex md:hidden items-center gap-2">
           {user && <MeshNetworkStatus />}
+          <ThemeToggle />
           <MobileNav user={user} onSignOut={handleSignOut} />
         </div>
       </div>
