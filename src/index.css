@@ -108,4 +108,11 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Add padding for bottom nav on mobile */
+  @media (max-width: 768px) {
+    body {
+      @apply pb-16;
+    }
+  }
 }
