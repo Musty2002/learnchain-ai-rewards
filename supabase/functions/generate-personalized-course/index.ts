@@ -171,8 +171,29 @@ Format your response as JSON:
     // which aren't suitable for synchronous edge functions. Skipping for now.
     const videoUrl = null;
 
+    // Ensure profile exists for this user (in case trigger didn't fire)
+    const { data: existingProfile } = await admin
+      .from("profiles")
+      .select("id")
+      .eq("id", user.id)
+      .single();
+
+    if (!existingProfile) {
+      await admin.from("profiles").insert({
+        id: user.id,
+        full_name: user.user_metadata?.full_name || "New User",
+        email: user.email || ""
+      });
+      await admin.from("user_roles").insert({ user_id: user.id, role: "student" });
+      await admin.from("wallets").insert({
+        user_id: user.id,
+        balance: 0,
+        wallet_address: "LCT" + user.id.replace(/-/g, "").substring(0, 40).toUpperCase()
+      });
+    }
+
     // Enroll the user immediately with video URL
-    const { error: enrollError } = await supabase
+    const { error: enrollError } = await admin
       .from("enrollments")
       .insert({
         user_id: user.id,
@@ -181,11 +202,14 @@ Format your response as JSON:
       });
 
     if (enrollError) {
-      console.error("Enrollment error:", enrollError);
-      return new Response(
-        JSON.stringify({ error: "Failed to enroll in course" }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
-      );
+      // If already enrolled, ignore duplicate error
+      if (enrollError.code !== "23505") {
+        console.error("Enrollment error:", enrollError);
+        return new Response(
+          JSON.stringify({ error: "Failed to enroll in course" }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+        );
+      }
     }
 
     // Generate content in background without blocking the response
