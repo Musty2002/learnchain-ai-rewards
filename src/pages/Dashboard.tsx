@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProgressBar } from "@/components/ProgressBar";
 import { AchievementBadge } from "@/components/AchievementBadge";
 import { Wallet, BookOpen, Trophy, Sparkles, Network, Camera } from "lucide-react";
+import { DocumentPersonalizer } from "@/components/DocumentPersonalizer";
 import { toast } from "sonner";
 import { offlineStorage } from "@/lib/offlineStorage";
 
