@@ -273,6 +273,9 @@ const Dashboard = () => {
                 )}
               </CardContent>
             </Card>
+
+            {/* Document Personalizer Widget */}
+            <DocumentPersonalizer />
           </TabsContent>
 
           <TabsContent value="progress" className="space-y-6">
