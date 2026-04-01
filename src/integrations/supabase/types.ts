@@ -324,6 +324,48 @@ export type Database = {
           },
         ]
       }
+      personalized_documents: {
+        Row: {
+          created_at: string
+          hobby: string | null
+          id: string
+          language: string | null
+          original_filename: string | null
+          original_text: string
+          personalization_type: string
+          personalized_text: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          hobby?: string | null
+          id?: string
+          language?: string | null
+          original_filename?: string | null
+          original_text: string
+          personalization_type?: string
+          personalized_text?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          hobby?: string | null
+          id?: string
+          language?: string | null
+          original_filename?: string | null
+          original_text?: string
+          personalization_type?: string
+          personalized_text?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           age: number | null
