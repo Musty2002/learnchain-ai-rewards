@@ -1,7 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { offlineStorage } from "./offlineStorage";
 
-let syncInterval: NodeJS.Timeout | null = null;
+let syncInterval: ReturnType<typeof setInterval> | null = null;
 
 export const syncManager = {
   isOnline: () => navigator.onLine,
